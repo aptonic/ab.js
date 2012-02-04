@@ -16,8 +16,7 @@ Directly after this include you can setup your A/B tests as follows:
 
 	<script type="text/javascript">
 
-	var myAbTest = ABTest(
-  {
+	var myAbTest = ABTest({
     name : "Example Test",
     customVarSlot : 1,
     variations : {

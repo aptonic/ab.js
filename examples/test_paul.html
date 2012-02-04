@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>A/B Test Page</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="../ab.js"></script>
+
+    <script type="text/javascript">
+
+      var myAbTest = new ABTest({
+        name : "example test",
+        customVarSlot : 1,
+        variations : {
+          panda2 : function() {
+            document.getElementById("panda").src = "images/panda2.jpg";
+            document.getElementById("footer-text").innerHTML = "This is the variation 'panda2'";
+          },
+          control: function() { /* Empty function. */ }
+        }
+      });
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27079358-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1>A/B Test Example</h1>
+    <img id="panda" alt="panda" src="images/panda1.jpg">
+    <p id="footer-text">This is the control test</p>
+    <p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
+    <p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
+    <input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
+  </div>
+
+
+</body>
+</html>

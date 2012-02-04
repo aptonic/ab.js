@@ -7,15 +7,22 @@
 		
 		<script type="text/javascript">
 		
-			var myAbTest = new ABTest("example test", 1, 
-			{
-				panda2 : function() {
+		var myAbTest = ABTest({
+			name : "Example Test",
+			customVarSlot : 1,
+			variations : {
+				first_variation : function() {
 					document.getElementById("panda").src = "images/panda2.jpg";
-					document.getElementById("footer-text").innerHTML = "This is the variation 'panda2'";
+          document.getElementById("footer-text").innerHTML = "This is the first variation.";
+				},
+				another_variation : function() {
+					document.getElementById("panda").src = "images/panda3.jpg";
+          document.getElementById("footer-text").innerHTML = "This is another variation.";
 				},
 				control: function() { /* Empty function. */ }
-			});
-			
+			}
+		});
+		
 		</script>
 	</head>
 	<body>

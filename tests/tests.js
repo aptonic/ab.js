@@ -1,11 +1,15 @@
 $(document).ready(function() {
 
    function createABTest() {
-		var myAbTest = new ABTest("example test", 1, 
-		{
-			other : function() { },
-			control: function() { }
-		});
+      var myAbTest = ABTest({
+         name : "example test",
+         customVarSlot : 1,
+         variations : {
+            other : function() { },
+            control : function() { }
+         }
+      });
+      return myAbTest;
    }
 
    // Clear all cookies before running each test
@@ -28,11 +32,11 @@ $(document).ready(function() {
 
       test("Check cookie is set and matches a variation function", function() {
       	expect(2);
-         createABTest();
+         myAbTest = createABTest();
          
       	var cookieVariation = ABTestUtils.getCookie(cookieName);
       	notEqual(cookieVariation, '', cookieName + " cookie may not be empty");
-      	equal(ABTestUtils.isFunction(ABTestVariationFunctions[cookieVariation]), true, cookieName + " cookie does not match a variation function");
+      	equal(ABTestUtils.isFunction(myAbTest.variations[cookieVariation]), true, cookieName + " cookie does not match a variation function");
       });
 
    // Force control variation for next test
@@ -47,7 +51,7 @@ $(document).ready(function() {
          createABTest();
 	
       	var cookieVariation = ABTestUtils.getCookie(cookieName);
-      	equal(cookieVariation, 'control', 'Cooke should have been set to control');
+      	equal(cookieVariation, 'control', 'Cookie should have been set to control');
       });
    
       // Force other variation for next test

@@ -13,7 +13,7 @@ var ABTest = function(config) {
    if(!config.name){
       return false;
    }else{
-      ab.name = name;
+      ab.name = config.name;
    }
 
    if(!config.customVarSlot){

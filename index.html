@@ -3,44 +3,69 @@
 	<head>
 		<title>A/B Test Page</title>
 		<link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
-		<script type="text/javascript" src="../ab.js"></script>
-		
+		<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
 		<script type="text/javascript">
-		
+
 		var myAbTest = ABTest({
-			name : "Example Test",
-			customVarSlot : 1,
-			variations : {
-				first_variation : function() {
-					document.getElementById("panda").src = "images/panda2.jpg";
-          document.getElementById("footer-text").innerHTML = "This is the first variation.";
-				},
-				another_variation : function() {
-					document.getElementById("panda").src = "images/panda3.jpg";
-          document.getElementById("footer-text").innerHTML = "This is another variation.";
-				},
-				control: function() { /* Empty function. */ }
-			}
+				name: "Example Test",
+				customVarSlot: 1,
+				variations: {
+						first_variation: function () {
+								document.getElementById("panda").src = "images/panda2.jpg";
+								document.getElementById("footer-text").innerHTML = "This is the first variation.";
+						},
+						another_variation: function () {
+								document.getElementById("panda").src = "images/panda3.jpg";
+								document.getElementById("footer-text").innerHTML = "This is another variation.";
+						},
+						control: function () { /* Empty function. */
+						}
+				}
 		});
-		
+
 		</script>
 	</head>
 	<body>
-		<div class="content">
-
-			
-			<div id="content">
-				<img src="images/abjs.png">
-				<p><strong>AB.js is an easy to use JavaScript based A/B testing framework.</strong></p>
-				<p>Each variation is created by writing small JavaScript functions that modify the page.</p>
-				<p>When the page is loaded, AB.js selects one of your JavaScript variation functions at random, runs it and stores the variation in a cookie. This allows you to test per user rather than per page load.</p>
-				<p>AB.js then creates a Google analytics custom variable with the name of the variation. You can then compare the performance of each variation in the Demographics -> Custom Variables section of Google Analytics.</p>
+		<div id="maincontainer">
+			<div id="contentwrapper">
+				<div id="info">
+					<img src="images/abjs.png">
+					<h2>AB.js is an easy to use JavaScript based A/B testing framework.</h2>
+					<p>Each variation is created by writing small JavaScript functions that modify the page.</p>
+					<p>When the page is loaded, AB.js selects one of your JavaScript variation functions at random, runs it and stores the chosen variation name in a cookie.</p>
+					<p>When the user visits the page again, the same variation is shown. This allows you to test per user rather than per page load.</p>
+					<p>AB.js then creates a Google analytics custom variable with the name of the variation. You can then compare the performance of each variation in the Demographics -&gt; Custom Variables section of Google Analytics.</p>
+					<p>The framework is completely self contained and does not require any other libraries such as jQuery.</p>
+					<a href="https://github.com/aptonic/ab.js">View AB.js on GitHub</a>
+				</div>
+				
+				<div id="browsers">
+					<h2>Browser Support</h2>
+					<p>AB.js should work in most modern browsers and it has been tested in the following:</p>
+					<ul>
+						<li>Internet Explorer 6+</li>
+						<li>Firefox 4+</li>
+						<li>Chrome</li>
+						<li>Safari</li>
+						<li>Opera</li>
+					</ul>
+				</div>
 			</div>
 
-						<div id="content">
+			
+			<div id="example">
+				<h2>Now for a working example with Pandas...</h2>
+				<p>You can copy the below code into the head section of your page and modify it as needed.</p>
 
-				<p><strong>Here's a working example with Pandas</strong></p>
-<pre style='color:#000020;background:#f6f8ff;'><span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span>
+<!-- 
+
+Code block below was generated with http://jsbeautifier.org and http://tohtml.com/jScript 
+
+-->
+
+<pre style='color:#000020;background:#f6f8ff;'><span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span> src<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>http://aptonic.github.com/ab.js/ab.js</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span><span style='color:#308080; '>&lt;</span><span style='color:#308080; '>/</span>script<span style='color:#308080; '>></span>
+
+<span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span>
 
 <span style='color:#200080; font-weight:bold; '>var</span> myAbTest <span style='color:#308080; '>=</span> ABTest<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
     name<span style='color:#406080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>Example Test</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span>
@@ -62,15 +87,15 @@
 <span style='color:#308080; '>&lt;</span><span style='color:#308080; '>/</span>script<span style='color:#308080; '>></span>
 </pre>
 
-			<img id="panda" alt="panda" src="images/panda1.jpg">
-      <p id="footer-text">This is the control test</p>
-      <p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
-      <p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
-      <input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
+				<img id="panda" alt="panda" src="images/panda1.jpg">
+				<p id="footer-text">This is the control test</p>
+				<p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
+				<p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
+				<h2>Hit the Clear Cookie button and reload the page a few times to get a new variation.</h2>
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
 
-					</div>
-		
+			</div>
+			
+		</div>
 	</body>
 </html>
-
-

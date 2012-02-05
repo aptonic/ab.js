@@ -1,9 +1,49 @@
-#content {
+body {
+	font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 20px;
+}
+
+a {
+	color: #213bfb;
+	font-weight: bold;
+}
+
+#maincontainer {
+	min-width: 1550px;
+}
+
+#contentwrapper {
+	float: left;
+	width: 100%;
+	padding-right: 25px;
+}
+
+#info {
+	margin-right: 1200px;
+	border-style: inset;
+	padding: 20px 40px;
+	margin-bottom: 25px;
+}
+
+#example {
+	float: left;
 	width: 800px;
+	margin-left: -1200px;
 	border-style: inset;
 	padding: 20px 40px;
 }
 
-p {
-	font: 15px "Lucida Grande", Lucida, Verdana, sans-serif;
+#browsers {
+   border-style: inset;
+	padding: 20px 40px;
+	margin-right: 1200px;
+}
+
+h2 {
+	font-size: 15px;
+}
+
+ul {
+	margin: 0;
+	padding: 0 0 0 20px;
 }

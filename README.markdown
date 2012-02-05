@@ -1,6 +1,8 @@
 # ab.js - A/B Testing JavaScript Framework
 
-![Logo](https://github.com/newzealandpaul/ab.js/raw/markdown-test/web/2.png)
+![Logo](http://aptonic.github.com/ab.js/images/abjs.png)
+
+See the [project website](http://aptonic.github.com/ab.js) for a demo and more info.
 
 Concept and Design by [Paul William](https://github.com/newzealandpaul)
 

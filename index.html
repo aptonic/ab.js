@@ -1,1 +1,76 @@
-My GitHub Page
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>A/B Test Page</title>
+		<link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+		<script type="text/javascript" src="../ab.js"></script>
+		
+		<script type="text/javascript">
+		
+		var myAbTest = ABTest({
+			name : "Example Test",
+			customVarSlot : 1,
+			variations : {
+				first_variation : function() {
+					document.getElementById("panda").src = "images/panda2.jpg";
+          document.getElementById("footer-text").innerHTML = "This is the first variation.";
+				},
+				another_variation : function() {
+					document.getElementById("panda").src = "images/panda3.jpg";
+          document.getElementById("footer-text").innerHTML = "This is another variation.";
+				},
+				control: function() { /* Empty function. */ }
+			}
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div class="content">
+
+			
+			<div id="content">
+				<img src="images/abjs.png">
+				<p><strong>AB.js is an easy to use JavaScript based A/B testing framework.</strong></p>
+				<p>Each variation is created by writing small JavaScript functions that modify the page.</p>
+				<p>When the page is loaded, AB.js selects one of your JavaScript variation functions at random, runs it and stores the variation in a cookie. This allows you to test per user rather than per page load.</p>
+				<p>AB.js then creates a Google analytics custom variable with the name of the variation. You can then compare the performance of each variation in the Demographics -> Custom Variables section of Google Analytics.</p>
+			</div>
+
+						<div id="content">
+
+				<p><strong>Here's a working example with Pandas</strong></p>
+<pre style='color:#000020;background:#f6f8ff;'><span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span>
+
+<span style='color:#200080; font-weight:bold; '>var</span> myAbTest <span style='color:#308080; '>=</span> ABTest<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
+    name<span style='color:#406080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>Example Test</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span>
+    customVarSlot<span style='color:#406080; '>:</span> <span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span>
+    variations<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+        first_variation<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span>
+            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>panda</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>src <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>images/panda2.jpg</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
+            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>footer-text</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>innerHTML <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>This is the first variation.</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
+        <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+        another_variation<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span>
+            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>panda</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>src <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>images/panda3.jpg</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
+            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>footer-text</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>innerHTML <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>This is another variation.</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
+        <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+        control<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span> <span style='color:#595979; '>/* Empty function. */</span>
+        <span style='color:#406080; '>}</span>
+    <span style='color:#406080; '>}</span>
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
+
+<span style='color:#308080; '>&lt;</span><span style='color:#308080; '>/</span>script<span style='color:#308080; '>></span>
+</pre>
+
+			<img id="panda" alt="panda" src="images/panda1.jpg">
+      <p id="footer-text">This is the control test</p>
+      <p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
+      <p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
+      <input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
+
+					</div>
+		
+	</body>
+</html>
+
+

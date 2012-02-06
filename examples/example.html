@@ -3,38 +3,86 @@
 	<head>
 		<title>A/B Test Page</title>
 		<link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+		
 		<script type="text/javascript" src="../ab.js"></script>
 		
 		<script type="text/javascript">
 		
 		var myAbTest = ABTest({
-			name : "Example Test",
-			customVarSlot : 1,
-			variations : {
-				first_variation : function() {
-					document.getElementById("panda").src = "images/panda2.jpg";
-          document.getElementById("footer-text").innerHTML = "This is the first variation.";
-				},
-				another_variation : function() {
-					document.getElementById("panda").src = "images/panda3.jpg";
-          document.getElementById("footer-text").innerHTML = "This is another variation.";
-				},
-				control: function() { /* Empty function. */ }
-			}
+		    name: "Example_Test",
+		    customVarSlot: 1,
+		    variations: {
+		        first_variation: function () {
+		            document.getElementById("panda").src = "images/panda2.jpg";
+		            document.getElementById("footer-text").innerHTML = "This is the first variation.";
+		        },
+		        another_variation: function () {
+		            document.getElementById("panda").src = "images/panda3.jpg";
+		            document.getElementById("footer-text").innerHTML = "This is another variation.";
+		        },
+		        control: function () { /* Empty function. */
+		        }
+		    }
+		});
+		
+		var myAbTest2 = ABTest({
+		    name: "Another_Example",
+		    customVarSlot: 1,
+		    variations: {
+		        first_variation: function () {
+		            document.getElementById("pika").src = "images/pika2.jpg";
+		            document.getElementById("footer-text").innerHTML = "This is the first variation.";
+		        },
+		        another_variation: function () {
+		            document.getElementById("pika").src = "images/pika3.jpg";
+		            document.getElementById("footer-text2").innerHTML = "This is another variation.";
+		        },
+		        control: function () { /* Empty function. */
+		        }
+		    }
 		});
 		
 		</script>
 	</head>
 	<body>
 		<div class="content">
-			<h1>A/B Test Example</h1>
-			<img id="panda" alt="panda" src="images/panda1.jpg">
-      <p id="footer-text">This is the control test</p>
-      <p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
-      <p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
-      <input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
+			<div id="left-test">
+				<h1>A/B Test 1</h1>
+			
+				<img id="panda" alt="panda" src="images/panda1.jpg" name="panda">
+			
+				<p id="footer-text">
+					This is the control test
+				</p>
+				<p class="debug">
+					New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "Yes" : "No");</script>
+				</p>
+				<p class="debug">
+					Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script>
+				</p>
+			
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_' + myAbTest.name, '', 365);">
+			</div>
+			
+			<div id="right-test">
+				<h1>A/B Test 2</h1>
+			
+				<img id="pika" alt="pika" src="images/pika1.jpg" name="panda">
+			
+				<p id="footer-text2">
+					This is the control test
+				</p>
+				
+				<p class="debug">
+					New Cookie Set: <script type="text/javascript">document.write(myAbTest2.newCookieSet ? "Yes" : "No");</script>
+				</p>
+				<p class="debug">
+					Assigned Variation: <script type="text/javascript">document.write(myAbTest2.assignedVariation);</script>
+				</p>
+			
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_' + myAbTest2.name, '', 365);">
+			</div>
+			
 		</div>
-		
-		
 	</body>
 </html>

@@ -17,6 +17,18 @@
 			div.test-controls a {
 				color: #528CE0;
 			}
+			
+			#testdiv, #testdiv2 {
+				font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; 
+				border: #999 solid;
+				padding: 10px;
+				margin: 10px;
+				text-align: center;
+			}
+			
+			#testdiv2 {
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -25,9 +37,18 @@
 		<h2 id="qunit-userAgent"></h2>
 		<ol id="qunit-tests"></ol>
 		
+		<div id="testdiv">
+			<span style="color: red">Testing Error - This div should have changed its content on page load.</span>
+		</div>
+		
+		<div id="testdiv2">
+			This div was shown by Variation 2 of second test (Module D)
+		</div>
+		
 		<div class="test-controls">
 			<p><a id="continue-link">Run next test module >></a></p>
 			<p><a href="tests.html">Start Over</a></p>
 		</div>
+
 	</body>
 </html>

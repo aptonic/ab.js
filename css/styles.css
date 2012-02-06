@@ -27,7 +27,7 @@ a {
 
 #example {
 	float: left;
-	width: 800px;
+	width: auto;
 	margin-left: -1200px;
 	border-style: inset;
 	padding: 20px 40px;

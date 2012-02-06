@@ -1,3 +1,8 @@
+---
+layout: default
+title: ab.js demo
+---
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 	<head>
@@ -63,29 +68,26 @@ Code block below was generated with http://jsbeautifier.org and http://tohtml.co
 
 -->
 
-<pre style='color:#000020;background:#f6f8ff;'><span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span> src<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>http://aptonic.github.com/ab.js/ab.js</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span><span style='color:#308080; '>&lt;</span><span style='color:#308080; '>/</span>script<span style='color:#308080; '>></span>
+				{% highlight javascript %}
 
-<span style='color:#308080; '>&lt;</span>script type<span style='color:#308080; '>=</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>text/javascript</span><span style='color:#800000; '>"</span><span style='color:#308080; '>></span>
+				var myAbTest = ABTest({
+						name: "Example Test",
+						customVarSlot: 1,
+						variations: {
+								first_variation: function () {
+										document.getElementById("panda").src = "images/panda2.jpg";
+										document.getElementById("footer-text").innerHTML = "This is the first variation.";
+								},
+								another_variation: function () {
+										document.getElementById("panda").src = "images/panda3.jpg";
+										document.getElementById("footer-text").innerHTML = "This is another variation.";
+								},
+								control: function () { /* Empty function. */
+								}
+						}
+				});
 
-<span style='color:#200080; font-weight:bold; '>var</span> myAbTest <span style='color:#308080; '>=</span> ABTest<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
-    name<span style='color:#406080; '>:</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>Example Test</span><span style='color:#800000; '>"</span><span style='color:#308080; '>,</span>
-    customVarSlot<span style='color:#406080; '>:</span> <span style='color:#008c00; '>1</span><span style='color:#308080; '>,</span>
-    variations<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
-        first_variation<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span>
-            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>panda</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>src <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>images/panda2.jpg</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
-            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>footer-text</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>innerHTML <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>This is the first variation.</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
-        <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
-        another_variation<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span>
-            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>panda</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>src <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>images/panda3.jpg</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
-            document<span style='color:#308080; '>.</span>getElementById<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>footer-text</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>innerHTML <span style='color:#308080; '>=</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>This is another variation.</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
-        <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
-        control<span style='color:#406080; '>:</span> <span style='color:#200080; font-weight:bold; '>function</span> <span style='color:#308080; '>(</span><span style='color:#308080; '>)</span> <span style='color:#406080; '>{</span> <span style='color:#595979; '>/* Empty function. */</span>
-        <span style='color:#406080; '>}</span>
-    <span style='color:#406080; '>}</span>
-<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
-
-<span style='color:#308080; '>&lt;</span><span style='color:#308080; '>/</span>script<span style='color:#308080; '>></span>
-</pre>
+				{% endhighlight %}
 
 				<img id="panda" alt="panda" src="images/panda1.jpg">
 				<p id="footer-text">This is the control test</p>

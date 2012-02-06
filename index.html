@@ -8,7 +8,7 @@ title: ab.js demo
 	<head>
 		<title>A/B Test Page</title>
 		<link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
-		<link rel="stylesheet" href="css/pastie.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="css/default.css" type="text/css" media="screen" charset="utf-8">
 		<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
 		<script type="text/javascript">
 
@@ -63,29 +63,24 @@ title: ab.js demo
 				<h2>Now for a working example with Pandas...</h2>
 				<p>You can copy the below code into the head section of your page and modify it as needed.</p>
 
-<!-- 
-
-Code block below was generated with http://jsbeautifier.org and http://tohtml.com/jScript 
-
--->
 
 {% highlight js %}
 
 var myAbTest = ABTest({
-		name: "Example Test",
-		customVarSlot: 1,
-		variations: {
-				first_variation: function () {
-						document.getElementById("panda").src = "images/panda2.jpg";
-						document.getElementById("footer-text").innerHTML = "This is the first variation.";
-				},
-				another_variation: function () {
-						document.getElementById("panda").src = "images/panda3.jpg";
-						document.getElementById("footer-text").innerHTML = "This is another variation.";
-				},
-				control: function () { /* Empty function. */
-				}
-		}
+    name: "Example Test",
+    customVarSlot: 1,
+    variations: {
+        first_variation: function () {
+            document.getElementById("panda").src = "images/panda2.jpg";
+            document.getElementById("footer-text").innerHTML = "This is the first variation.";
+        },
+        another_variation: function () {
+            document.getElementById("panda").src = "images/panda3.jpg";
+            document.getElementById("footer-text").innerHTML = "This is another variation.";
+        },
+        control: function () { /* Empty function. */
+        }
+    }
 });
 
 {% endhighlight %}

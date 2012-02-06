@@ -27,10 +27,11 @@ a {
 
 #example {
 	float: left;
-	width: auto;
+	width: 800px;
 	margin-left: -1200px;
 	border-style: inset;
 	padding: 20px 40px;
+	-webkit-text-size-adjust:none;
 }
 
 #browsers {

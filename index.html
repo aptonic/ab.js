@@ -68,26 +68,26 @@ Code block below was generated with http://jsbeautifier.org and http://tohtml.co
 
 -->
 
-				{% highlight javascript %}
+{% highlight js %}
 
-				var myAbTest = ABTest({
-						name: "Example Test",
-						customVarSlot: 1,
-						variations: {
-								first_variation: function () {
-										document.getElementById("panda").src = "images/panda2.jpg";
-										document.getElementById("footer-text").innerHTML = "This is the first variation.";
-								},
-								another_variation: function () {
-										document.getElementById("panda").src = "images/panda3.jpg";
-										document.getElementById("footer-text").innerHTML = "This is another variation.";
-								},
-								control: function () { /* Empty function. */
-								}
-						}
-				});
+var myAbTest = ABTest({
+		name: "Example Test",
+		customVarSlot: 1,
+		variations: {
+				first_variation: function () {
+						document.getElementById("panda").src = "images/panda2.jpg";
+						document.getElementById("footer-text").innerHTML = "This is the first variation.";
+				},
+				another_variation: function () {
+						document.getElementById("panda").src = "images/panda3.jpg";
+						document.getElementById("footer-text").innerHTML = "This is another variation.";
+				},
+				control: function () { /* Empty function. */
+				}
+		}
+});
 
-				{% endhighlight %}
+{% endhighlight %}
 
 				<img id="panda" alt="panda" src="images/panda1.jpg">
 				<p id="footer-text">This is the control test</p>

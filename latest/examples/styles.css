@@ -38,8 +38,7 @@ div#footer {
 }
 
 div#footer p {
-   font-size: 15px;
-   	
+   font-size: 15px;  	
 }
 
 #caption-text, #caption-text2 {
@@ -54,7 +53,7 @@ p {
 table {
 	border-width: 1px;
 	border-spacing: 2px;
-	border-style: outset;
+	border-style: inset;
 	border-color: white;
 	border-collapse: collapse;
 	background-color: white;

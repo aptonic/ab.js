@@ -111,7 +111,7 @@ var myAbTest = ABTest({
 				
 				<h2>Hit the Clear Cookie button and reload the page a few times to get a new variation.</h2>
 				
-				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_' + myAbTest.name, '', 365);">
 
 			</div>
 			

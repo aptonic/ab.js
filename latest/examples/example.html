@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>A/B Test Example Page</title>
+		<link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8">
+		<script type="text/javascript" src="../ab.js"></script>
+
+		<script type="text/javascript">
+		
+		var myAbTest = ABTest({
+		    name: "Example_Test",
+		    customVarSlot: 1,
+		    variations: {
+		        first_variation: function () {
+		            document.getElementById("panda").src = "images/panda2.jpg";
+		            document.getElementById("caption-text").innerHTML = "This is the first variation.";
+		        },
+		        another_variation: function () {
+		            document.getElementById("panda").src = "images/panda3.jpg";
+		            document.getElementById("caption-text").innerHTML = "This is another variation.";
+		        },
+		        control: function () { /* Empty function. */
+		        }
+		    }
+		});
+		
+		var myAbTest2 = ABTest({
+		    name: "Another_Example",
+		    customVarSlot: 1,
+		    variations: {
+		        first_variation: function () {
+		            document.getElementById("pika").src = "images/pika2.jpg";
+		            document.getElementById("caption-text2").innerHTML = "This is the first variation.";
+		        },
+		        another_variation: function () {
+		            document.getElementById("pika").src = "images/pika3.jpg";
+		            document.getElementById("caption-text2").innerHTML = "This is another variation.";
+		        },
+		        control: function () { /* Empty function. */
+		        }
+		    }
+		});
+		
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<div id="left-test">
+				<h1>A/B Test 1</h1>
+			
+				<img id="panda" alt="panda" src="images/panda1.jpg" name="panda">
+			
+				<p id="caption-text">
+					This is the control test
+				</p>
+				<table>
+					<tr>
+						<td>Cookie Name</td>
+						<td><script type="text/javascript">document.write('abjs_' + myAbTest.name);</script></td>
+					</tr>
+					<tr>
+						<td>New Cookie Set</td>
+						<td><script type="text/javascript">document.write(myAbTest.newCookieSet ? "Yes" : "No");</script></td>
+					</tr>
+					<tr>
+						<td>Assigned Variation</td>
+						<td><script type="text/javascript">document.write(myAbTest.assignedVariation);</script></td>
+					</tr>
+				</table>
+				<a href="?abjs-setvar-Example_Test=control&abjs-setcookie=yes">Force control</a><br>
+				<a href="?abjs-setvar-Example_Test=first_variation&abjs-setcookie=yes">Force first_variation</a><br>
+				<a href="?abjs-setvar-Example_Test=another_variation&abjs-setcookie=yes">Force another_variation</a><br><br>
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_' + myAbTest.name, '', 365);">
+			</div>
+			
+			<div id="right-test">
+				<h1>A/B Test 2</h1>
+			
+				<img id="pika" alt="pika" src="images/pika1.jpg" name="panda">
+			
+				<p id="caption-text2">
+					This is the control test
+				</p>
+				<table>
+					<tr>
+						<td>Cookie Name</td>
+						<td><script type="text/javascript">document.write('abjs_' + myAbTest2.name);</script></td>
+					</tr>
+					<tr>
+						<td>New Cookie Set</td>
+						<td><script type="text/javascript">document.write(myAbTest2.newCookieSet ? "Yes" : "No");</script></td>
+					</tr>
+					<tr>
+						<td>Assigned Variation</td>
+						<td><script type="text/javascript">document.write(myAbTest2.assignedVariation);</script></td>
+					</tr>
+				</table>
+				<a href="?abjs-setvar-Another_Example=control&abjs-setcookie=yes">Force control</a><br>
+				<a href="?abjs-setvar-Another_Example=first_variation&abjs-setcookie=yes">Force first_variation</a><br>
+				<a href="?abjs-setvar-Another_Example=another_variation&abjs-setcookie=yes">Force another_variation</a><br><br>
+				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_' + myAbTest2.name, '', 365);">
+			</div>
+			<div id="footer">
+				<p><strong>Hit either of the Clear Cookie buttons and reload the page a few times to have another variation randomly selected.</strong></p>
+				<p>Click the force variation links to see how to show a particular variation using URL query parameters.</p>
+				<p>If viewing this page from a local file:// URL in Chrome, the variation will not be stored as Chrome does not support cookies for file:// URLs.</p>
+				<a href="http://aptonic.github.com/ab.js">Project Home</a>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title>ab.js QUnit Tests</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="http://code.jquery.com/qunit/git/qunit.js"></script>
+		<script type="text/javascript" src="../ab.js"></script>
+		<script type="text/javascript" src="tests.js"></script>
+		
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css">
+		<style type="text/css" media="screen">
+			div.test-controls {
+				font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; 
+				text-align: center;
+			}
+			
+			div.test-controls a {
+				color: #528CE0;
+			}
+			
+			#testdiv, #testdiv2 {
+				font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; 
+				border: #999 solid;
+				padding: 10px;
+				margin: 10px;
+				text-align: center;
+			}
+			
+			#testdiv2 {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="qunit-header">ab.js QUnit Tests</h1>
+		<h2 id="qunit-banner"></h2>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+		
+		<div id="testdiv">
+			<span style="color: red">Testing Error - This div should have changed its content on page load.</span>
+		</div>
+		
+		<div id="testdiv2">
+			This div was shown by Variation 2 of second test (Module D)
+		</div>
+		
+		<div class="test-controls">
+			<p><a id="continue-link">Run next test module >></a></p>
+			<p><a href="tests.html">Start Over</a></p>
+		</div>
+
+	</body>
+</html>

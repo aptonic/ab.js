@@ -42,7 +42,11 @@ title: ab.js demo
 					<p>When the user visits the page again, the same variation is shown. This allows you to test per user rather than per page load.</p>
 					<p>AB.js then creates a Google analytics custom variable with the name of the variation. You can then compare the performance of each variation in the Demographics -&gt; Custom Variables section of Google Analytics.</p>
 					<p>The framework is completely self contained and does not require any other libraries such as jQuery.</p>
-					<a href="https://github.com/aptonic/ab.js">View AB.js on GitHub</a>
+					<ul class="links">
+						<li><a href="https://github.com/aptonic/ab.js">View AB.js on GitHub</a></li>
+						<li><a href="latest/examples/example.html">Another example with multiple tests</a></li>
+						<li><a href="latest/tests/tests.html">Unit tests</a></li>
+					</ul>
 				</div>
 				
 				<div id="browsers">
@@ -65,6 +69,8 @@ title: ab.js demo
 
 
 {% highlight js %}
+
+<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
 
 var myAbTest = ABTest({
     name: "Example Test",

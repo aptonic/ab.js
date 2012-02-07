@@ -10,42 +10,39 @@
 var ABTest = function(config) {
    var ab = {};
 
-   if(!config.name){
+   if (config.name.indexOf(' ') >= 0)
       return false;
-   }else{
+
+   if(!config.name) {
+      return false;
+   } else {
       ab.name = config.name;
    }
 
-   if(!config.customVarSlot){
+   if (!config.customVarSlot) {
       return false;
-   }else{
+   } else {
       ab.customVarSlot = config.customVarSlot;
    }
 
-   if(!config.variations){
+   if (!config.variations) {
       return false;
-   }else{
+   } else {
       ab.variations = config.variations;
    }
 
-   if(!config.multivariate){
-      ab.multivariate = false;
-   }else{
-      ab.multivariate = true;
-   }
-
    ab.newCookieSet = null;
-   var cookieName = "abjs_variation";
+   var cookieName = "abjs_" + ab.name;
    var queryString = ABTestUtils.queryString();
    ab.cookieVariation = ABTestUtils.getCookie(cookieName);
    ab.queryVariation = queryString["abjs-setvar-" + ab.name];
 
-   if(ABTestUtils.isFunction(ab.variations[ab.queryVariation])){
+   if (ABTestUtils.isFunction(ab.variations[ab.queryVariation])) {
       ab.assignedVariation = ab.queryVariation;
-   }else{
+   } else {
       ab.assignedVariation = ab.cookieVariation;
    }
-   if(queryString["abjs-setcookie"] === "yes"){
+   if(queryString["abjs-setcookie"] === "yes") {
       ab.newCookieSet = true;
    }
 
@@ -64,9 +61,7 @@ var ABTest = function(config) {
       ABTestUtils.contentLoaded(window, function() { ab.variations[ab.assignedVariation]() });
    }
 
-   if(ab.multivariate == false){
-     ab.execute();
-   }
+   ab.execute();
 
    window._gaq = window._gaq || [];
    window._gaq.push(["_setCustomVar", ab.customVarSlot, "abjs_" + ab.name, "abjs_" + ab.assignedVariation, 1]);
@@ -103,7 +98,7 @@ ABTestUtils.keys = function(o) {
 
    var ret = [];
    var p = null;
-   for(p in o) {
+   for (p in o) {
       if(Object.prototype.hasOwnProperty.call(o,p)) {
          ret.push(p);
       }

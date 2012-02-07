@@ -1,4 +1,4 @@
-# ab.js - A/B Testing JavaScript Framework
+# AB.js - A/B Testing JavaScript Framework
 
 ![Logo](http://aptonic.github.com/ab.js/images/abjs.png)
 
@@ -10,7 +10,7 @@ Developed by [John Winter](http://www.aptonic.com) (john@aptonic.com)
 
 ## Usage
 
-We host the latest version of ab.js on GitHub and you can include it in your pages header with:
+We host the latest version of AB.js on GitHub and you can include it in your pages header with:
 
 	<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
 

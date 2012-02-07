@@ -68,7 +68,7 @@ There are QUnit tests in the tests folder. You can run these by opening the test
 Note that these will fail in Google Chrome if run locally as Chrome does not support cookie storage for file:// URLs.
 The same applies for the examples/example.html test page.
 
-## Browser Support
+## Browser support
 
 The framework should work in all modern browsers and it has been tested in the following:
 

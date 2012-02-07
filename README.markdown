@@ -40,7 +40,6 @@ Directly after this include you can setup your A/B tests as follows:
 	</script>
 
 You can have as many variation functions as you want. The test name and variation names must not contain any spaces.
-
 The first time the page loads, one of the variation functions will be selected at random and run.
 
 A cookie will then be set so that each time the user loads the page they see the same variation.
@@ -49,7 +48,6 @@ There is nothing special about the control function, it is just another variatio
 Normally the control will just be an empty function.
 
 A Google Analytics custom variable will be set called "abjs_{test name}" This variable contains the name of the variation shown to that user.
-
 You can compare the performance of each variation in the Demographics -> Custom Variables section of
 Google Analytics.
 
@@ -69,6 +67,16 @@ There are QUnit tests in the tests folder. You can run these by opening the test
 
 Note that these will fail in Google Chrome if run locally as Chrome does not support cookie storage for file:// URLs.
 The same applies for the examples/example.html test page.
+
+## Browser Support
+
+The framework should work in all modern browsers and it has been tested in the following:
+
+* Internet Explorer 6+
+* Firefox 4+
+* Chrome
+* Safari
+* Opera
 
 ## License
 

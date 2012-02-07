@@ -34,6 +34,29 @@ a {
 	-webkit-text-size-adjust:none;
 }
 
+#caption-text {
+   font-weight: bold;
+}
+
+table {
+   font-size: 14px;
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-color: white;
+	border-collapse: collapse;
+	background-color: white;
+	margin-bottom: 20px;
+}
+
+table td {
+	border-width: 1px;
+	padding: 5px;
+	border-style: inset;
+	border-color: gray;
+	background-color: rgb(255, 255, 255);
+}
+
 #browsers {
    border-style: inset;
 	padding: 20px 40px;

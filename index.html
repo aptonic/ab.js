@@ -18,11 +18,11 @@ title: ab.js demo
 				variations: {
 						first_variation: function () {
 								document.getElementById("panda").src = "images/panda2.jpg";
-								document.getElementById("footer-text").innerHTML = "This is the first variation.";
+								document.getElementById("caption-text").innerHTML = "This is the first variation.";
 						},
 						another_variation: function () {
 								document.getElementById("panda").src = "images/panda3.jpg";
-								document.getElementById("footer-text").innerHTML = "This is another variation.";
+								document.getElementById("caption-text").innerHTML = "This is another variation.";
 						},
 						control: function () { /* Empty function. */
 						}
@@ -70,7 +70,7 @@ title: ab.js demo
 
 {% highlight js %}
 
-<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://aptonic.github.com/ab.js/ab.js&quot;&gt;&lt;/script&gt;
 
 var myAbTest = ABTest({
     name: "Example Test",
@@ -92,10 +92,25 @@ var myAbTest = ABTest({
 {% endhighlight %}
 
 				<img id="panda" alt="panda" src="images/panda1.jpg">
-				<p id="footer-text">This is the control test</p>
-				<p class="debug">New Cookie Set: <script type="text/javascript">document.write(myAbTest.newCookieSet ? "yes" : "no");</script></p>
-				<p class="debug">Assigned Variation: <script type="text/javascript">document.write(myAbTest.assignedVariation);</script></p>
+				<p id="caption-text">This is the control test</p>
+
+				<table>
+					<tr>
+						<td>Cookie Name</td>
+						<td><script type="text/javascript">document.write('abjs_' + myAbTest.name);</script></td>
+					</tr>
+					<tr>
+						<td>New Cookie Set</td>
+						<td><script type="text/javascript">document.write(myAbTest.newCookieSet ? "Yes" : "No");</script></td>
+					</tr>
+					<tr>
+						<td>Assigned Variation</td>
+						<td><script type="text/javascript">document.write(myAbTest.assignedVariation);</script></td>
+					</tr>
+				</table>
+				
 				<h2>Hit the Clear Cookie button and reload the page a few times to get a new variation.</h2>
+				
 				<input type="button" name="clear" value="Clear Cookie" onclick="ABTestUtils.setCookie('abjs_variation', '', 365);">
 
 			</div>

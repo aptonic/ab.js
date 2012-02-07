@@ -42,7 +42,7 @@ table {
    font-size: 14px;
 	border-width: 1px;
 	border-spacing: 2px;
-	border-style: outset;
+	border-style: inset;
 	border-color: white;
 	border-collapse: collapse;
 	background-color: white;

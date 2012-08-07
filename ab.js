@@ -19,6 +19,13 @@ var ABTest = function(config) {
       ab.name = config.name;
    }
 
+   // disable or enable google analytics support
+   if(!config.gaSupport) {
+      ab.gaSupport = false;
+   } else {
+      ab.gaSupport = config.gaSupport;
+   }
+
    if (!config.customVarSlot) {
       return false;
    } else {
@@ -29,6 +36,12 @@ var ABTest = function(config) {
       return false;
    } else {
       ab.variations = config.variations;
+   }
+
+   if(!config.chooseVariationNumber) {
+      ab.chooseVariationNumber = Math.floor(Math.random() * ABTestUtils.keys(ab.variations).length);
+   } else {
+      ab.chooseVariationNumber = config.chooseVariationNumber;
    }
 
    ab.newCookieSet = null;
@@ -48,7 +61,7 @@ var ABTest = function(config) {
 
    if (ab.assignedVariation === "" || !(ABTestUtils.isFunction(ab.variations[ab.assignedVariation]))) {
       // Assign a variation and set cookie
-      variationNumber = Math.floor(Math.random() * ABTestUtils.keys(ab.variations).length);
+      variationNumber = ab.chooseVariationNumber;
       ab.assignedVariation = ABTestUtils.keys(ab.variations)[variationNumber];
       ab.newCookieSet = true;
    }
@@ -63,8 +76,10 @@ var ABTest = function(config) {
 
    ab.execute();
 
-   window._gaq = window._gaq || [];
-   window._gaq.push(["_setCustomVar", ab.customVarSlot, "abjs_" + ab.name, "abjs_" + ab.assignedVariation, 1]);
+   if (ab.gaSupport) {
+      window._gaq = window._gaq || [];
+      window._gaq.push(["_setCustomVar", ab.customVarSlot, "abjs_" + ab.name, "abjs_" + ab.assignedVariation, 1]);
+   }
 
    return ab;
 }

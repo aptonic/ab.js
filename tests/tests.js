@@ -102,10 +102,10 @@ $(document).ready(function() {
          equal(document.getElementById("testdiv").innerHTML, window.testdivString, "A variation function did not change the content of testdiv");
       });
       // Force control variation for next test
-      document.getElementById("continue-link").href = "tests.html?module=B&abjs-setvar-example_test_2=control&abjs-setcookie=yes";
+      document.getElementById("continue-link").href = "tests.html?&module=B&abjs-setvar-example_test_2=control&abjs-setcookie=yes";
 
    } else if (queryString["module"] == "B") {
-      
+
       module("Module B", before);
 
       test("Try forcing the control variation", function() {
@@ -123,7 +123,7 @@ $(document).ready(function() {
       });
    
       // Force variation8 on example test 2 for next test
-      document.getElementById("continue-link").href = "tests.html?module=C&abjs-setvar-example_test_2=variation8&abjs-setcookie=yes";
+      document.getElementById("continue-link").href = "tests.html?&module=C&abjs-setvar-example_test_2=variation8&abjs-setcookie=yes";
       
    } else if (queryString["module"] == "C") {
       
@@ -138,10 +138,10 @@ $(document).ready(function() {
       });
    
    // Force variation 1 on first test and variation 2 on second test for next test
-   document.getElementById("continue-link").href = "tests.html?module=D&abjs-setvar-first_test=variation1&abjs-setvar-second_test=variation2&abjs-setcookie=yes";
+   document.getElementById("continue-link").href = "tests.html?&module=D&abjs-setvar-first_test=variation1&abjs-setvar-second_test=variation2&abjs-setcookie=yes";
    
    } else if (queryString["module"] == "D") {
-
+	
       module("Module D", before);
       
       // Try with multiple A/B tests on a single page

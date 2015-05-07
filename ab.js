@@ -168,7 +168,14 @@ ABTestUtils.queryString = function() {
    return qsMap;
 }
 
-window.ABTest = ABTest;
-window.ABTestUtils = ABTestUtils;
+if (typeof exports === 'object') {
+   module.exports = {
+      ABTest: ABTest,
+      ABTestUtils: ABTestUtils
+   };
+} else {
+   window.ABTest = ABTest;
+   window.ABTestUtils = ABTestUtils;
+}
 
 })();

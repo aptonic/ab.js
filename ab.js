@@ -10,8 +10,9 @@
 var ABTest = function(config) {
    var ab = {};
 
-   if (config.name.indexOf(' ') >= 0)
+   if (config.name.indexOf(' ') >= 0) {
       return false;
+   }
 
    if(!config.name) {
       return false;
@@ -26,7 +27,7 @@ var ABTest = function(config) {
       ab.gaSupport = config.gaSupport;
    }
 
-   if (!config.customVarSlot) {
+   if (!config.customVarSlot && config.gaSupport) {
       return false;
    } else {
       ab.customVarSlot = config.customVarSlot;
@@ -72,7 +73,7 @@ var ABTest = function(config) {
 
    ab.execute = function() {
       ABTestUtils.contentLoaded(window, function() { ab.variations[ab.assignedVariation]() });
-   }
+   };
 
    ab.execute();
 
@@ -82,7 +83,7 @@ var ABTest = function(config) {
    }
 
    return ab;
-}
+};
 
 var ABTestUtils = {};
 
@@ -91,7 +92,7 @@ ABTestUtils.setCookie = function(c_name, value, exdays) {
    exdate.setDate(exdate.getDate() + exdays);
    var c_value = escape(value) + ((exdays === null) ? "": "; expires=" + exdate.toUTCString());
    document.cookie = c_name + "=" + c_value;
-}
+};
 
 ABTestUtils.getCookie = function(c_name) {
    var i, x, y, ARRcookies = document.cookie.split(";");
@@ -104,7 +105,7 @@ ABTestUtils.getCookie = function(c_name) {
       }
    }
    return "";
-}
+};
 
 ABTestUtils.keys = function(o) {
    if (o !== Object(o)) {
@@ -119,11 +120,11 @@ ABTestUtils.keys = function(o) {
       }
    }
    return ret;
-}
+};
 
 ABTestUtils.isFunction = function(object) {
    return !!(object && object.constructor && object.call && object.apply);
-}
+};
 
 ABTestUtils.contentLoaded = function(win, fn) {
 
@@ -156,7 +157,7 @@ ABTestUtils.contentLoaded = function(win, fn) {
       doc[add](pre + 'readystatechange', init, false);
       win[add](pre + 'load', init, false);
    }
-}
+};
 
 ABTestUtils.queryString = function() {
    var qsMap = {};
@@ -166,7 +167,7 @@ ABTestUtils.queryString = function() {
       qsMap[unescape(kvp[0])] = unescape(kvp[1]);
    }
    return qsMap;
-}
+};
 
 if (typeof exports === 'object') {
    module.exports = {

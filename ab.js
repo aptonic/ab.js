@@ -26,7 +26,7 @@ var ABTest = function(config) {
       ab.gaSupport = config.gaSupport;
    }
 
-   if (!config.customVarSlot) {
+   if (!config.customVarSlot && config.gaSupport) {
       return false;
    } else {
       ab.customVarSlot = config.customVarSlot;

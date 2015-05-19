@@ -84,6 +84,8 @@ This code is released under the MIT License.
 
 ## Many Thanks 
 
+* Fixes contributed by [Klaasvaak](https://github.com/Klaasvaak)
+* commonjs export by [jtangelder](https://github.com/jtangelder)
 * contentloaded() by [Diego Perini](https://github.com/dperini)
 * isFunction() from [Underscore.js](http://documentcloud.github.com/underscore/)
 * queryString() from [jquip](https://github.com/mythz/jquip)

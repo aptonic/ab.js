@@ -53,6 +53,8 @@ Google Analytics.
 
 There is an example A/B test setup in examples/example.html
 
+This script is compatible with CommonJS.
+
 ## Forcing a variation
 
 During testing you may want to force a particular variation, you can do this by adding something like:

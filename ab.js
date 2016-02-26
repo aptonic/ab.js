@@ -61,7 +61,7 @@ var ABTest = function(config) {
 
    if (ab.assignedVariation === "" || !(ABTestUtils.isFunction(ab.variations[ab.assignedVariation]))) {
       // Assign a variation and set cookie
-      variationNumber = ab.chooseVariationNumber;
+      var variationNumber = ab.chooseVariationNumber;
       ab.assignedVariation = ABTestUtils.keys(ab.variations)[variationNumber];
       ab.newCookieSet = true;
    }

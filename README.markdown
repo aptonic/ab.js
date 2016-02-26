@@ -8,11 +8,7 @@ By [Paul William](https://github.com/newzealandpaul), [John Winter](http://www.a
 
 ## Usage
 
-We host the latest version of AB.js on GitHub and you can include it in your pages header with:
-
-	<script type="text/javascript" src="http://aptonic.github.com/ab.js/ab.js"></script>
-
-Or alternatively you can copy ab.js into the js directory inside your web site root and include in the pages head section with:
+Copy ab.js into the js directory inside your web site root and include in the pages head section with:
 
 	<script type="text/javascript" src="js/ab.js"></script>
 

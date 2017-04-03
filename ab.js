@@ -68,7 +68,8 @@ var ABTest = function(config) {
    }
 
    if(ab.newCookieSet === true){
-      ABTestUtils.setCookie(cookieName, ab.assignedVariation, 365);
+     var cookiePath = config.cookiePath || window.location.pathname;
+      ABTestUtils.setCookie(cookieName, ab.assignedVariation, 365, cookiePath);
    }
 
    ab.execute = function() {
@@ -87,11 +88,11 @@ var ABTest = function(config) {
 
 var ABTestUtils = {};
 
-ABTestUtils.setCookie = function(c_name, value, exdays) {
+ABTestUtils.setCookie = function(c_name, value, exdays, path) {
    var exdate = new Date();
    exdate.setDate(exdate.getDate() + exdays);
    var c_value = escape(value) + ((exdays === null) ? "": "; expires=" + exdate.toUTCString());
-   document.cookie = c_name + "=" + c_value;
+   document.cookie = c_name + "=" + c_value + "; path=" + path;
 };
 
 ABTestUtils.getCookie = function(c_name) {
